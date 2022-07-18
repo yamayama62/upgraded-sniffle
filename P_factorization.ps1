@@ -34,14 +34,17 @@ function Factorization_Prime_Number([long]$n){
 [int16]$j = 1
 while($flg -eq 6 -and $j -le 10){
     $n = [Interaction]::InputBox("整数を入力してください:")
+    if ($n -eq ""){
+        break
+    }
     $str = Factorization_Prime_Number $n
 
     if ($str -eq ""){
-        $flg = [Interaction]::MsgBox("素数です。", 4)
+        [Interaction]::MsgBox("素数です。")
      }elseif($str -eq "2以上の整数を入力してください。"){
-        $flg = [Interaction]::MsgBox($str, 4)
+        [Interaction]::MsgBox($str)
      }else{
-        $flg = [Interaction]::MsgBox( "素数ではありません。`r`n" + $str, 4)
+        [Interaction]::MsgBox( "素数ではありません。`r`n" + $str)
      }
     $j += 1
 }
